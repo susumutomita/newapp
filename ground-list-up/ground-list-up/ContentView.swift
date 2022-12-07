@@ -8,10 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var number = 0
     var body: some View
     {
-        Image(systemName:"smiley")
-            .resizable().foregroundColor(.green).padding(.all).scaledToFit()
+        VStack{
+            Text("\(number)")
+            Button(action: {self.number += 1}){
+                Text("カウント")
+            }
+            Image(systemName:"speaker.fill")
+                .resizable().foregroundColor(.green).padding(.all).scaledToFit()
+        }
     }
 }
 
