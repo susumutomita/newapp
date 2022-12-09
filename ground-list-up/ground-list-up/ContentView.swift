@@ -13,12 +13,13 @@ struct ContentView: View {
     {
         VStack{
             Text("\(number)")
-            Button(action: {() -> Void in self.number += 1 }){
-                Text("カウント")
-            }
+            Button(action: {() -> Void in self.number += 1 }, label:text)
             Image(systemName:"speaker.fill")
                 .resizable().foregroundColor(.green).padding(.all).scaledToFit()
         }
+    }
+    func text() -> Text {
+        Text("カウント")
     }
 }
 
