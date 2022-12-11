@@ -11,7 +11,7 @@ struct ContentView: View {
     @State var number = 0
     var body: some View
     {
-        VStack{
+        HStack(){
             Text("\(number)")
             Button(action: {() -> Void in self.number += 1 }, label:{() -> Text in Text("カウント")})
             Image(systemName:"speaker.fill")
