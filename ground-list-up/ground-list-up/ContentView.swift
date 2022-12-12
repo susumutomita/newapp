@@ -11,12 +11,14 @@ struct ContentView: View {
     @State var number = 0
     var body: some View
     {
-        HStack(){
+        VStack(){
+            Image("Counter")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
             Text("\(number)")
             Button(action: {() -> Void in self.number += 1 }, label:{() -> Text in Text("カウント")})
-            Image(systemName:"speaker.fill")
-                .resizable().foregroundColor(.green).padding(.all).scaledToFit()
         }
+
     }
 }
 
