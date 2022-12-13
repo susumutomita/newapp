@@ -15,8 +15,8 @@ struct ContentView: View {
             Image("Counter")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-            Text("\(number)")
-            Button(action: {() -> Void in self.number += 1 }, label:{() -> Text in Text("カウント")})
+            Text("\(number)").font(.largeTitle)
+            Button(action: {() -> Void in self.number += 1 }, label:{() -> Text in Text("カウント")}).foregroundColor(.white).padding(.all).background(Color.blue).cornerRadius(10.0)
         }
 
     }
