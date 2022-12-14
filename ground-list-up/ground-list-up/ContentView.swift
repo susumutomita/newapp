@@ -6,19 +6,22 @@
 //
 
 import SwiftUI
+import MapKit
+
+struct MapView: UIViewRepresentable{
+    func makeUIView(context: Context) -> MKMapView {
+        return MKMapView()
+    }
+    func updateUIView(_ uiView: MKMapView, context: Context) {
+    }
+    
+}
 
 struct ContentView: View {
-    @State var number = 0
     var body: some View
     {
-        VStack(){
-            Image("Counter")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-            Text("\(number)").font(.largeTitle)
-            Button(action: {() -> Void in self.number += 1 }, label:{() -> Text in Text("カウント")}).foregroundColor(.white).padding(.all).background(Color.blue).cornerRadius(10.0)
-        }
-
+        MapView()
+            .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
     }
 }
 
