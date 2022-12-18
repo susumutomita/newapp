@@ -18,9 +18,30 @@ struct MapView: UIViewRepresentable{
 }
 
 struct ContentView: View {
+    var cards = ["かばん":"bag",
+    "自動車"
+                 :"car","誕生日":"birthday"]
+    @State var japanese = "かばん"
+    @State var isJapanese = true
     var body: some View
     {
-        MapView()
+        VStack{
+            Text(isJapanese ? japanese : cards[japanese]!)
+            HStack
+            {
+                Button(action:{
+                    self.isJapanese.toggle()
+                }){
+                Text("裏返す")
+                }
+                Button(action: {
+                    self.isJapanese = true
+                    self.japanese = self.cards.randomElement()!.key
+                }){
+                    Text("次へ")
+                }
+            }
+        }
     }
 }
 
