@@ -29,7 +29,7 @@ struct ContentView: View {
             Color(red: 0.97, green: 0.96, blue:0.56).edgesIgnoringSafeArea(.all)
             VStack{
                 ZStack{
-                    Image("card")
+                    Image("cards")
                         .resizable()
                         .frame(width: 300.0,height:133.0)
                         .shadow(radius: 3)
