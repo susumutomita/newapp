@@ -6,62 +6,35 @@
 //
 
 import SwiftUI
-import MapKit
-
-struct MapView: UIViewRepresentable{
-    func makeUIView(context: Context) -> MKMapView {
-        return MKMapView()
-    }
-    func updateUIView(_ uiView: MKMapView, context: Context) {
-    }
-    
-}
 
 struct ContentView: View {
-    var cards = ["かばん":"bag",
-    "自動車"
-                 :"car","誕生日":"birthday"]
-    @State var japanese = "かばん"
-    @State var isJapanese = true
+    @State var image:Image?
+    @State var isPicking = false
     var body: some View
     {
-        ZStack {
-            Color(red: 0.97, green: 0.96, blue:0.56).edgesIgnoringSafeArea(.all)
+        ZStack{
             VStack{
-                ZStack{
-                    Image("cards")
-                        .resizable()
-                        .frame(width: 300.0,height:133.0)
-                        .shadow(radius: 3)
-                        .rotation3DEffect(.degrees(isJapanese ? 0 : 180), axis: (x: 0, y: 1, z: 0))
-                        .animation(.easeInOut)
-                        .onTapGesture {
-                            self.isJapanese.toggle()
-                        }
-                    Text(isJapanese ? japanese : cards[japanese]!).font(.largeTitle)
+                VStack{
+                    Spacer()
+                    image?.resizable().scaledToFit()
+                    Spacer()
                 }
-                HStack
-                {
-                    Group{
-                        Button(action:{
-                            self.isJapanese.toggle()
-                        }){
-                            Image(systemName: "arrow.2.circlepath")
-                            Text("裏返す")
-                        }
-                        Button(action: {
-                            self.isJapanese = true
-                            self.japanese = self.cards.randomElement()!.key
-                        }){
-                            Image(systemName: "forward.fill")
-                            Text("次へ")
-                        }
+                HStack{
+                    Spacer()
+                    Button(action: {
+                        self.isPicking=true
+                    }){
+                        Image(systemName: "camera")
+                        Text("カメラ")
                     }.padding()
-                        .foregroundColor(.white)
-                        .background(Color(red: 0.1, green: 0.3, blue: 0.4))
-                        .cornerRadius(10)
                 }
             }
+        }
+        if isPicking{
+            Rectangle()
+                .edgesIgnoringSafeArea(.all)
+                .transition(.move(edge: .bottom))
+                .animation(.easeInOut)
         }
     }
 }
