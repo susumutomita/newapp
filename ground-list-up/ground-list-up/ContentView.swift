@@ -16,7 +16,9 @@ struct ContentView: View {
             VStack{
                 VStack{
                     Spacer()
-                    image?.resizable().scaledToFit()
+                    image?
+                        .resizable()
+                        .scaledToFit()
                     Spacer()
                 }
                 HStack{
@@ -29,12 +31,12 @@ struct ContentView: View {
                     }.padding()
                 }
             }
-        }
-        if isPicking{
-            Rectangle()
-                .edgesIgnoringSafeArea(.all)
-                .transition(.move(edge: .bottom))
-                .animation(.easeInOut)
+            if isPicking{
+                ImagePicker()
+                    .edgesIgnoringSafeArea(.all)
+                    .transition(.move(edge: .bottom))
+                    .animation(.easeInOut)
+            }
         }
     }
 }
