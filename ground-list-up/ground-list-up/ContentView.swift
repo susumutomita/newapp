@@ -27,7 +27,7 @@ struct ContentView: View {
                         self.isPicking=true
                     }){
                         Image(systemName: "camera")
-                        Text("カメラ")
+                        Text("camera")
                     }.padding()
                 }
             }
@@ -43,6 +43,10 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group{
+            ContentView().environment(\.locale,Locale(identifier: "ja"))
+            ContentView().environment(\.locale,Locale(identifier: "en"))
+        }
+
     }
 }
