@@ -5,4 +5,5 @@
   Created by susumu tomita on 2022/12/27.
   
 */
-"start" = "予約する";
+"y_start" = "Y 予約する";
+"k_start" = "K 予約する";

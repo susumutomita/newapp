@@ -12,15 +12,20 @@ struct ContentView: View {
     var body: some View
     {
         ZStack{
-                VStack{
+            VStack{
+                Group{
                     Button(action:{}){
-                        Text("start")
+                        Text("y_start")
+                    }
+                    Button(action:{}){
+                        Text("k_start")
                     }
                 }
                 .padding()
                 .foregroundColor(.white)
                 .background(Color.blue)
                 .cornerRadius(10)
+            }
         }
     }
 }
