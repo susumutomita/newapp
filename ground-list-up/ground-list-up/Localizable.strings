@@ -5,5 +5,4 @@
   Created by susumu tomita on 2022/12/27.
   
 */
-"camera" = "カメラを起動する";
-"Hello" = "こんにちは";
+"start" = "予約する";

@@ -8,35 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var image:Image?
-    @State var isPicking = false
+    @State var number = 0
     var body: some View
     {
         ZStack{
-            VStack{
                 VStack{
-                    Spacer()
-                    image?
-                        .resizable()
-                        .scaledToFit()
-                    Spacer()
+                    Button(action:{}){
+                        Text("start")
+                    }
                 }
-                HStack{
-                    Spacer()
-                    Button(action: {
-                        self.isPicking=true
-                    }){
-                        Image(systemName: "camera")
-                        Text("camera")
-                    }.padding()
-                }
-            }
-            if isPicking{
-                ImagePicker(image: $image, isPicking: $isPicking)
-                    .edgesIgnoringSafeArea(.all)
-                    .transition(.move(edge: .bottom))
-                    .animation(.easeInOut)
-            }
+                .padding()
+                .foregroundColor(.white)
+                .background(Color.blue)
+                .cornerRadius(10)
         }
     }
 }
@@ -50,3 +34,4 @@ struct ContentView_Previews: PreviewProvider {
 
     }
 }
+
