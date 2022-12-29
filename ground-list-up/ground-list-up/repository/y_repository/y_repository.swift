@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import UIKit
+
+class Y_repository :Repository_base{
+    func open_page(url:URL){
+        UIApplication.shared.open(url)
+    }
+}

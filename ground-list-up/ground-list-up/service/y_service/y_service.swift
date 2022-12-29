@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+class Y_service :Service_base{
+    let repository = Y_repository()
+    func open(){
+        let target_url = URL(string: "https://google.com")!
+        repository.open_page(url:target_url)
+    }
+}

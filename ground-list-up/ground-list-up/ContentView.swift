@@ -14,7 +14,10 @@ struct ContentView: View {
         ZStack{
             VStack{
                 Group{
-                    Button(action:{}){
+                    
+                    Button(action: {
+                        Y_service().open()
+                    }){
                         Text("y_start")
                     }
                     Button(action:{}){
