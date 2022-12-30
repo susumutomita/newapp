@@ -6,11 +6,19 @@
 //
 
 import Foundation
+import Alamofire
 
 class Y_service :Service_base{
     let repository = Y_repository()
-    func open(){
-        let target_url = URL(string: "https://google.com")!
-        repository.open_page(url:target_url)
+    func open() {
+        let parameters: [String: Any] = [    "username": "user1",    "password": "pass1"]
+        AF.request("https://example.com", method: .post, parameters: parameters, encoding: JSONEncoding.default).response{ response in
+            switch response.result {
+            case .success(let value):
+                print(value!)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
