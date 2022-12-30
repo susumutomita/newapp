@@ -1,6 +1,0 @@
-framework module Pods_ground_list_up {
-  umbrella header "Pods-ground-list-up-umbrella.h"
-
-  export *
-  module * { export * }
-}
