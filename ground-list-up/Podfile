@@ -4,7 +4,7 @@ platform :ios, '16.1'
 target 'ground-list-up' do
   use_frameworks!
   # Comment the next line if you don't want to use dynamic frameworks
-  pod 'Alamofire', '~> 5.0'
+  pod 'Alamofire'
   # Pods for ground-list-up
 
   target 'ground-list-upTests' do
