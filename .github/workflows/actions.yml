@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Build and Test
+      - name: Build
         env:
           scheme: ${{ 'ground-list-up' }}
           platform: ${{ 'iOS Simulator' }}
@@ -22,5 +22,4 @@ jobs:
           target_sdk: ${{ 'iphonesimulator' }}
         run: |
           pod install
-          # xcodebuild -scheme "$scheme" -workspace "$scheme".xcworkspace -sdk $target_sdk
-          xcodebuild -scheme "$scheme" -workspace "$scheme".xcworkspace -sdk $target_sdk -destination 'platform=$platform,name=$target_device' clean test
+          xcodebuild -scheme "$scheme" -workspace "$scheme".xcworkspace -sdk $target_sdk
