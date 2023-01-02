@@ -14,24 +14,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Set Default Scheme
-        run: |
-          scheme_list=$(xcodebuild -list -json | tr -d "\n")
-          default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
-          echo $default | cat >default
-          echo Using default scheme: $default
       - name: Build and Test
         env:
-          scheme: ${{ 'default' }}
+          scheme: ${{ 'ground-list-up' }}
           platform: ${{ 'iOS Simulator' }}
           target_device: ${{ 'iPhone 14' }}
           target_sdk: ${{ 'iphonesimulator' }}
         run: |
           pod install
-          # xcrun xctrace returns via stderr, not the expected stdout (see https://developer.apple.com/forums/thread/663959)
-          device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}' | sed -e "s/ Simulator$//"`
-          if [ $scheme = default ]; then scheme=$(cat default); fi
-          if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then filetype_parameter="workspace" && file_to_build="`ls -A | grep -i \\.xcworkspace\$`"; else filetype_parameter="project" && file_to_build="`ls -A | grep -i \\.xcodeproj\$`"; fi
-          file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
-          xcodebuild -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -sdk $target_sdk
-          xcodebuild -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -sdk $target_sdk -destination 'platform=$platform,name=$target_device' clean test
+          xcodebuild -scheme "$scheme" -workspace "$scheme".xcworkspace -sdk $target_sdk
+          # xcodebuild -scheme "$scheme" -workspace "$scheme".xcworkspace -sdk $target_sdk -destination 'platform=$platform,name=$target_device' clean test
