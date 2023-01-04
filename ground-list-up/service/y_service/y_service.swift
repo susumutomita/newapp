@@ -21,4 +21,9 @@ class Y_service :Service_base{
             }
         }
     }
+    
+    func add(a:Int,b:Int) -> Int{
+       return  a + b
+    }
+    
 }
