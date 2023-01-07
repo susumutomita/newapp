@@ -30,4 +30,4 @@ jobs:
         run: |
           pod install
           xcodebuild -scheme "$scheme" -workspace "$scheme".xcworkspace -sdk $target_sdk
-          xcodebuild -workspace "$scheme".xcworkspace -scheme "$scheme" "test" "-destination" "id=dvtdevice-DVTiOSDeviceSimulatorPlaceholder-iphonesimulator"
+          xcodebuild -workspace "$scheme".xcworkspace -scheme "$scheme" "test" "-destination" platform="iOS Simulator" name="Any iOS Device"
