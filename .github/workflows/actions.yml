@@ -24,10 +24,6 @@ jobs:
       - name: Build
         env:
           scheme: ${{ 'ground-list-up' }}
-          platform: ${{ 'iOS Simulator' }}
-          target_device: ${{ 'iPhone 14' }}
-          target_sdk: ${{ 'iphonesimulator' }}
         run: |
           pod install
-          xcodebuild -scheme "$scheme" -workspace "$scheme".xcworkspace -sdk $target_sdk
-          xcodebuild -workspace "$scheme".xcworkspace -scheme "$scheme" "test" "-destination" "id=36C478D3-1E23-4F78-AD75-A7C98A1797B0"
+          xcodebuild -workspace "$scheme".xcworkspace -scheme "$scheme" "test" "-destination" "id=FC628398-B173-431B-A25B-3E42F3D2878C"
