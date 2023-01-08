@@ -3,8 +3,6 @@ name: test
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   build:
@@ -14,16 +12,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Cache CocoaPods files
-        uses: actions/cache@preview
-        with:
-          path: Pods
-          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-pods-
-      - name: Build
+      - name: test
         env:
           scheme: ${{ 'ground-list-up' }}
         run: |
           pod install
-          xcodebuild -workspace "$scheme".xcworkspace -scheme "$scheme" "test" "-destination" "id=FC628398-B173-431B-A25B-3E42F3D2878C"
+          xcodebuild test -project "$scheme".xcodeproj/ -scheme "$scheme" -resultBundlePath TestResults -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 8"
+          # xcodebuild -workspace "$scheme".xcworkspace -scheme "$scheme" "test" "-destination" "id=FC628398-B173-431B-A25B-3E42F3D2878C"
