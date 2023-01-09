@@ -6,15 +6,23 @@ on:
 
 jobs:
   build:
-    name: test
+    name: build
     runs-on: macos-12
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: test
+      - name: Cache CocoaPods files
+        uses: actions/cache@preview
+        with:
+          path: Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
+      - name: Build
         env:
           scheme: ${{ 'ground-list-up' }}
+          target_sdk: ${{ 'iphonesimulator' }}
         run: |
           pod install
           xcodebuild -scheme "$scheme" -workspace "$scheme".xcworkspace -sdk $target_sdk
