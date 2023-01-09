@@ -17,5 +17,4 @@ jobs:
           scheme: ${{ 'ground-list-up' }}
         run: |
           pod install
-          xcodebuild test -project "$scheme".xcodeproj/ -scheme "$scheme" -resultBundlePath TestResults -sdk iphonesimulator -destination "platform=iOS Simulator,name=Any iOS Simulator Device"
-          # xcodebuild -workspace "$scheme".xcworkspace -scheme "$scheme" "test" "-destination" "id=FC628398-B173-431B-A25B-3E42F3D2878C"
+          xcodebuild -scheme "$scheme" -workspace "$scheme".xcworkspace -sdk $target_sdk
