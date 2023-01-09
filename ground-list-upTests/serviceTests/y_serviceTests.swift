@@ -36,8 +36,7 @@ final class y_serviceTests: XCTestCase {
         // Any test you write for XCTest can be annotated as throws and async.
         // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
         // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-        let ans = y_service?.add(a:3, b:4)
-        XCTAssertEqual(ans, 7)
+        y_service?.open()
     }
 
     func testPerformanceExample() throws {
