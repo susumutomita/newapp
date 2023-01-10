@@ -127,3 +127,5 @@ Carthage/Build/
 xcuserdata/
 *.moved-aside
 !.gitkeep
+.env
+Environment.swift
