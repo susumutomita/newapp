@@ -3,9 +3,8 @@
 
 code=$(cat <<EOS
 
-import Cocoa
-
-let Env: [String: String] = [
+class Environment {
+    var Env: [String: String] = [
 
 EOS
 )
@@ -34,7 +33,7 @@ fi
 
 code=$(cat <<EOS
 $code
-]
+]}
 EOS
 )
 

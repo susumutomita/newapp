@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		04256810A16AE7307621E8FD /* Pods_ground_list_up.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772CC8CBB61D774B3F51C334 /* Pods_ground_list_up.framework */; };
 		3AA7A9DD29663B1E00DD8A41 /* y_serviceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA7A9DC29663B1E00DD8A41 /* y_serviceTests.swift */; };
+		3AA7A9E42970BE3500DD8A41 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA7A9E32970BE3500DD8A41 /* Environment.swift */; };
 		3AACC0EC295A6B7E0002C612 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3AACC0EB295A6B7E0002C612 /* Localizable.strings */; };
 		3AACC0F1295A6CF10002C612 /* infoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3AACC0F3295A6CF10002C612 /* infoPlist.strings */; };
 		3AACC0FA295BB5CC0002C612 /* y_service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AACC0F9295BB5CC0002C612 /* y_service.swift */; };
@@ -47,6 +48,7 @@
 		14E542819A2414C904AF5711 /* Pods-ground-list-upTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ground-list-upTests.release.xcconfig"; path = "Target Support Files/Pods-ground-list-upTests/Pods-ground-list-upTests.release.xcconfig"; sourceTree = "<group>"; };
 		28842874F281C9B389E4C83A /* Pods_ground_list_up_ground_list_upUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ground_list_up_ground_list_upUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AA7A9DC29663B1E00DD8A41 /* y_serviceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = y_serviceTests.swift; sourceTree = "<group>"; };
+		3AA7A9E32970BE3500DD8A41 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		3AACC0EA29591C170002C612 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3AACC0EB295A6B7E0002C612 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		3AACC0F2295A6CF10002C612 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/infoPlist.strings; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				3AACC0F5295BB57E0002C612 /* service */,
 				3AACC0F3295A6CF10002C612 /* infoPlist.strings */,
 				3AD5869D291DB1CA00BD3B31 /* ContentView.swift */,
+				3AA7A9E32970BE3500DD8A41 /* Environment.swift */,
 				3AD5869F291DB1CB00BD3B31 /* Assets.xcassets */,
 				3AD586A1291DB1CB00BD3B31 /* Preview Content */,
 			);
@@ -496,6 +499,7 @@
 				3AD5869E291DB1CA00BD3B31 /* ContentView.swift in Sources */,
 				3AD5869C291DB1CA00BD3B31 /* ground_list_upApp.swift in Sources */,
 				3AACC0FE295D24E70002C612 /* service_base.swift in Sources */,
+				3AA7A9E42970BE3500DD8A41 /* Environment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
