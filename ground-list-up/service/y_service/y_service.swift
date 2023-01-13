@@ -10,9 +10,7 @@ import Alamofire
 
 class Y_service :Service_base{
     let repository = Y_repository()
-    let env = Environment()
     func open() {
-        print(env.Env["Y_TARGET_URL"])
         let parameters: [String: Any] = [    "username": "user1",    "password": "pass1"]
         AF.request("https://example.com", method: .post, parameters: parameters, encoding: JSONEncoding.default).response{ response in
             switch response.result {

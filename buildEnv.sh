@@ -9,12 +9,6 @@ class Environment {
 EOS
 )
 
-if [ $# -ne 2 ]; then
-  echo "require 2 arguments." 1>&2
-  echo "./buildEnv.sh /path/to/.env /output/path" 1>&2
-  exit 1
-fi
-
 if [ -f "$1" ]; then
     while IFS='' read -r line || [[ -n "$line" ]]; do
         line="${line//[$'\r\n']}"
