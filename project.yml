@@ -14,17 +14,10 @@ targets:
     platform: iOS
     sources:
       - ground-list-up
-      - path: "ground-list-up/Generated/MockResults.swift"
-        optional: true
-        type: file
-      - path: "ground-list-up/Generated/R.generated.swift"
-        optional: true
-        type: file
     settings:
       base:
         INFOPLIST_FILE: ground-list-up/Info.plist
         # PRODUCT_BUNDLE_IDENTIFIER: {Bundle ID Prefix}.ground-list-up # `bundleIdPrefix` を指定しない場合はコメントイン
-        CODE_SIGN_ENTITLEMENTS: Foo/Foo.entitlements
     dependencies:
       - carthage: Alamofire
       - carthage: Moya

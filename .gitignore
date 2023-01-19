@@ -131,3 +131,4 @@ xcuserdata/
 Environment.swift
 .bundle
 vendor
+.xcodeproj
