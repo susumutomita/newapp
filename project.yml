@@ -4,8 +4,7 @@ options:
   bundleIdPrefix: {Bundle ID Prefix}
   deploymentTarget:
     iOS: 16.1
-  xcodeVersion: "14.2" # 変わらない？
-  # findCarthageFrameworks: true # 余計なフレームワークまで追加されてしまうためコメントアウト
+  xcodeVersion: "14.2"
   carthageExecutablePath: mint run Carthage/Carthage carthage
 
 targets:
@@ -14,26 +13,12 @@ targets:
     platform: iOS
     sources:
       - ground-list-up
-      - path: "ground-list-up/Generated/MockResults.swift"
-        optional: true
-        type: file
-      - path: "ground-list-up/Generated/R.generated.swift"
-        optional: true
-        type: file
     settings:
       base:
         INFOPLIST_FILE: ground-list-up/Info.plist
         # PRODUCT_BUNDLE_IDENTIFIER: {Bundle ID Prefix}.ground-list-up # `bundleIdPrefix` を指定しない場合はコメントイン
-        CODE_SIGN_ENTITLEMENTS: Foo/Foo.entitlements
     dependencies:
       - carthage: Alamofire
-      - carthage: Moya
-      - carthage: ReactiveMoya
-      - carthage: ReactiveSwift
-      - carthage: RxCocoa
-      - carthage: RxMoya
-      - carthage: RxRelay
-      - carthage: RxSwift
     preBuildScripts:
       - script: |
                 "$PODS_ROOT/R.swift/rswift" generate "$SRCROOT/$TARGET_NAME/Generated/R.generated.swift"
@@ -108,8 +93,6 @@ schemes:
     build:
       targets:
         ground-list-up: all
-        # ground-list-upTests: [test] # デフォルト？
-        # ground-list-upUITests: [test] # デフォルト？
     run:
       config: Debug
     test:
